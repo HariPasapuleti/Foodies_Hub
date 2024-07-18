@@ -6,7 +6,7 @@
 }
 
 .navbar .logo {
-    width: 100px;
+    width: 150px;
 }
 
 .navbar-menu {
@@ -16,12 +16,12 @@
     list-style: none;
     gap: 20px;
     color: rgb(44, 83, 70);
-    font-size: 19px;
+    font-size: 18px;
 }
 
 .navbar-right {
     display: flex;
-    gap: 30px;
+    gap: 40px;
     text-align: center;
 }
 
@@ -52,6 +52,7 @@
 
 .navbar-search-icon {
     position: relative;
+    padding-top: 5px;
 
 }
 
@@ -61,8 +62,8 @@
     min-height: 10px;
     background-color: brown;
     border-radius: 5px;
-    top: -8px;
-    right: -8px;
+    top: -4px;
+    right: -7px;
 }
 
 @media (max-width: 1050px) {
@@ -103,7 +104,9 @@
     }
 
     .navbar-right img {
-        width: 20px;
+        padding-top: 2px;
+        width: 22px;
+
     }
     
     .navbar-right button {
