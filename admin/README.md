@@ -40,3 +40,30 @@
 1. `import ReactDOM from 'react-dom/client'`: Imports the ReactDOM package, specifically the client API, which is used to render React components into the DOM. (In main.jsx)
 2. `import { BrowserRouter } from "react-router-dom"`: Imports the BrowserRouter component from the react-router-dom package. This component is used to handle routing within the React application.
 3. `ReactDOM.createRoot(document.getElementById('root'))`: Creates a root for your React application. document.getElementById('root') selects the HTML element with the ID root where the React app will be mounted.
+4. `onChange={(e) => setImage(e.target.files[0])}` by adding this property in input field and `const [image, setImage] = useState(false);` state variable in add.jsx. we can access the file from own pc. But can't get the preview of the image in frontend of admin panel.
+5. `URL.createObjectURL(image)`: Used for previewing the uploaded image.
+6. `setdata(data => ({...data, [name]:value}))`: data(previous data), `...data, [name]:value`(taking previous data for getting value by taking feild name).
+7. `onChange={onChangeHandler}`: This specifies the function that should be called whenever the value of the input changes.
+8. `event.preventDefault();`: prevents from reloading pages.
+
+
+# Functions
+
+1. **BrowserRouter** (aliased as Router in the example): The router component that keeps the UI in sync with the URL. (Linked in main.jsx)
+2. **Route**: Defines a mapping between a URL path and a component.
+3. **Routes**: A container for all your Route components.
+4. **Link**: Allows navigation between routes without reloading the page.
+5. **NavLink**
+    * Purpose: Creates clickable links with styling for active routes.
+    * Usage: Used in the render method to display navigational links.
+    * Used for user interaction (clickable links).
+    * Supports active styling to highlight the current route.
+    * Navigation menus, links within your application.
+6. **Navigate**
+    * Purpose: Programmatically redirects users to a different route.
+    * Usage: Used inside components or functions to perform navigation based on conditions or actions.
+    * Used for programmatic navigation (automatic redirection).
+    * Does not handle styling; purely for redirection.
+    * Redirects after form submissions, authentication checks, or conditional logic.
+
+7. **Props**: To style the active link, you can use the activeClassName prop to specify the class name to apply when the link is active. You can also use the activeStyle prop to specify the style object to apply when the link is active.
