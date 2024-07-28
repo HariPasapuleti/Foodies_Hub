@@ -31,8 +31,8 @@ const addFood = async (req, res) => {
 // using asyncronous arrow function 
 const listFood = async (req, res) => {
     try {
-        const food = await foodModel.find({});
-        res.json({success: true, data: food})
+        const foods = await foodModel.find({});
+        res.json({success: true, data: foods})
     } catch (error) {
         console.log(error)
         res.json({success: false, message: "Failed to add item"})
@@ -45,7 +45,7 @@ const removeFood = async (req, res) => {
     try {
         const food = await foodModel.findById(req.body.id);
         fs.unlink(`uploads/${food.image}`, () => {})
-        await foodModel.findByIdAndDelete(req.body.id);
+        await foodModel.findByIdAndDelete(req.body.id); 
         res.json({sucess: true, message: "Removed item"})
 
     } catch (error) {

@@ -115,6 +115,7 @@
 10. **single("image")**: Specifies that a single file will be uploaded with the form field name image. (Used in foodRouter.js)
 11. **diskStorage** - A function in the multer middleware for handling file uploads. It allows you to configure the storage location and the filename for the uploaded files.
 12. **findById** - Finds the food model using the "id".
+14. **{minimize:false}**: Create data entry without any data.
 
 
 
@@ -122,3 +123,5 @@
 > **Note** - Schema, Model, and Models(In foodModels.js) in the context of Mongoose, which is an ODM (Object Data Modeling) library for MongoDB and Node.js.
 
 > **Note1** - "fs" is prebuilt function in nodejs.
+
+
