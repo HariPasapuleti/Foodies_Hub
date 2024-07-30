@@ -20,7 +20,7 @@ const Verify = () => {
             // console.log(response.data)
         }
         else {
-            // navigate("/")
+            navigate("/")
         }
     }
 
