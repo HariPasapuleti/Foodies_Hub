@@ -5,6 +5,7 @@ import foodRouter from "./routes/foodRoute.js"
 import userRouter from "./routes/userRoute.js"
 import 'dotenv/config'
 import cartRouter from "./routes/cartRoute.js"
+import orderRouter from "./routes/orderRoute.js"
 
 
 // App config
@@ -24,6 +25,7 @@ app.use("/images", express.static('uploads')) // Takes the image id and generate
 // mountes the images folder to uploads folder. (We can access the uploads folder using this /images/filename)
 app.use("/api/user", userRouter )
 app.use("/api/cart", cartRouter)
+app.use("/api/order", orderRouter)
 
 
 app.get("/", (req, res) => {

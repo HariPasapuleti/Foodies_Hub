@@ -125,3 +125,4 @@
 > **Note1** - "fs" is prebuilt function in nodejs.
 
 
+> **Note** - The best of implementing payment gatway is using web hooks. But it was lenthy and time consuming.
