@@ -11,7 +11,7 @@ import MyOrders from './pages/MyOrders/MyOrders'
 
 const App = () => {
 
-  const [showLogin, setShowLogin] = useState(false)
+  const [showLogin, setShowLogin] = useState(false) // true means it asks login first when webpage loaded.
 
   return (
     <>
