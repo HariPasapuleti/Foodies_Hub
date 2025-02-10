@@ -1,5 +1,18 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+// Load environment variables from .env file
+dotenv.config();
 
 export const connectDB = async () => {
-    await mongoose.connect('mongodb+srv://HariPasapuleti:hari9999@cluster0.6ip6jad.mongodb.net/foodies-hub').then(() => console.log("DB Connected"));
-}
+    try {
+        await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log("DB Connected");
+    } catch (error) {
+        console.error("DB Connection Error:", error.message);
+        process.exit(1);
+    }
+};
