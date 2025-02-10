@@ -29,7 +29,7 @@ const Add = ({url}) => {
       formData.append('image', image)
       const response = await axios.post(`${url}/api/food/add`, formData);
       console.log(response.data);
-      if (response.data.success) {
+      if (response.data.sucess) { // sucess is correct for verifing response only if toast present...
         // alert('Product added successfully');
         setData({
           name: '',
@@ -38,7 +38,7 @@ const Add = ({url}) => {
           category: 'Salad',
         })
         setImage(false)
-        toast.success(response.data.message);
+        toast.success(response.data.message); // toast can identfy only success
       }
       else {
         toast.error(response.data.message);
@@ -78,7 +78,7 @@ const Add = ({url}) => {
               <option value="Deserts"> Deserts </option>
               <option value="Sandwich"> Sandwich </option>
               <option value="Cake"> Cake </option>
-              <option value="Pure veg"> Pure veg</option>
+              <option value="Pure Veg"> Pure Veg</option>
               <option value="Pasta"> Pasta </option>
               <option value="Noodles"> Noddles </option>
             </select>
