@@ -12,21 +12,27 @@ const Verify = () => {
     const {url} = useContext(StoreContext);
     const navigate = useNavigate();
     const verifyPayment = async () => {
-        const response = await axios.post(url+"/api/order/verify", {success, orderId});
-        // console.log(response.data);
-
-        if(response.data.success) {
-            navigate("/myorders");
-            // console.log(response.data)
-        }
-        else {
-            navigate("/")
-        }
+        try {
+            const response = await axios.post(`${url}/api/order/verify`, { success, orderId });
+            console.log(response.data);
+        
+            if (response.data.success) {
+              navigate("/myorders"); // Redirect to "My Orders" on success
+            } else {
+              navigate("/"); // Redirect to home if verification fails
+            }
+          } catch (error) {
+            console.error("Verification failed:", error);
+            navigate("/"); // Redirect to home on error
+          }
     }
 
     useEffect(() => {
+        console.log("Verify Component Loaded");
+        console.log("Query Params:", { success, orderId });
         verifyPayment();
-    }, [])
+    }, []);
+      
 
 
     console.log(success, orderId);
