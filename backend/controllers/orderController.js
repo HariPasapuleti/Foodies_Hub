@@ -51,8 +51,9 @@ const placeOrder = async (req, res) => {
             mode: 'payment',
             success_url: `${frontend_url}/verify?success=true&orderId=${newOrder._id}`,
             cancel_url: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`,
+            
         })
-
+        console.log(success_url);
         res.json({success: true, session_url: session.url})
 
     } catch (error) {
