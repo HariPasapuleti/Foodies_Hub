@@ -31,13 +31,13 @@ const Footer = () => {
                 <h2> GET IN TOUCH </h2>
                 <ul>
                     <li> +91 9133313555 </li>
-                    <li> contact@foodieshub.com </li>
+                    <li> hari9000kmph@gmail.com </li>
                 </ul>
             </div>
         </div>
         <hr />
         <p className="footer-copyright"> 
-            All copyrights are registered to Foodies Hub Company, the rightful owner of this website. 
+            All copyrights are registered to Hari Pasapuleti, the rightful owner of this website. 
             Any unauthorized use or reproduction of the content, images, or any other material from this site is strictly prohibited and will be subject to legal action. 
             Foodies Hub Company reserves all rights pertaining to the intellectual property and maintains stringent measures to protect its creative works and proprietary information.
         </p>
