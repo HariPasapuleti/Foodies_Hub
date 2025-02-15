@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
 
     // const url = "http://localhost:4000";
-    const url = "https://foodies-hub.onrender.com/";
+    const url = "https://foodies-hub.onrender.com";
 
   return (
     <div>
@@ -22,9 +22,9 @@ const App = () => {
       <div className="app-content">
         <Sidebar/>
         <Routes>
-          <Route path = '/admin/add' element = {<Add url = {url}/>}/>
-          <Route path = '/admin/list' element = {<List url = {url}/>}/>
-          <Route path = '/admin/orders' element = {<Orders url = {url}/>}/>
+          <Route path = '/add' element = {<Add url = {url}/>}/>
+          <Route path = '/list' element = {<List url = {url}/>}/>
+          <Route path = '/orders' element = {<Orders url = {url}/>}/>
         </Routes>
       </div>
     </div>
