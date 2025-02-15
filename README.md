@@ -63,7 +63,7 @@ cd Foodies_Hub
      ```
 4. Start the server:
    ```bash
-   npm start
+   node server.js
    ```
 
 ### Admin Panel Setup
@@ -77,7 +77,7 @@ cd Foodies_Hub
    ```
 3. Start the development server:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ### Frontend Setup
@@ -91,7 +91,7 @@ cd Foodies_Hub
    ```
 3. Start the development server:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ### Deployment
