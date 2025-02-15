@@ -49,7 +49,7 @@ const PlaceOrder = () => {
     }
     let response = await axios.post(url+"/api/order/place", orderData, {headers: {token}});
     console.log("In payment session");
-    // console.log(response.data.data);
+    console.log(response.data.data);
     if(response.data.success) {
       const { session_url } = response.data;
       window.location.replace(session_url);
