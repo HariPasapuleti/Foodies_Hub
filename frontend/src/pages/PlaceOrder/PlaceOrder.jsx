@@ -5,7 +5,8 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 const PlaceOrder = () => {
-  const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
+
+  const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext)
 
   const [data, setData] = useState({
     firstName: "",
@@ -16,55 +17,61 @@ const PlaceOrder = () => {
     state: "",
     zipcode: "",
     country: "",
-    phone: "",
-  });
+    phone: ""
+  })
 
   const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setData((prevData) => ({ ...prevData, [name]: value }));
-  };
+    setData(data => ({...data, [name]:value})) // updates the data
+  }
+
+  // useEffect (() => {
+  //   console.log(data);
+  // }, [data])
+
+  const placeOrder = async (event) => {
+
+    event.preventDefault();
+    let orderItems = [];
+    food_list.map((item) => {
+      if(cartItems[item._id] > 0) {
+        let itemInfo = item;
+        itemInfo["quantity"] = cartItems[item._id];
+        orderItems.push(itemInfo)
+      }
+    })
+    // console.log(orderItems);
+    let orderData = {
+      address: data,
+      items: orderItems,
+      amount:getTotalCartAmount() + 2,
+    }
+    let response = await axios.post(url+"/api/order/place", orderData, {headers: {token}});
+    console.log("In payment session");
+    console.log(response.data.data);
+    if(response.data.success) {
+      const { session_url } = response.data;
+      window.location.replace(session_url);
+    }
+    else {
+      alert("Error in placing order");
+    }
+
+
+  }
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!token || getTotalCartAmount() === 0) {
-      navigate("/cart");
+    if(!token) {
+      navigate('/cart')
     }
-  }, [token, getTotalCartAmount, navigate]);
-
-  const placeOrder = async (event) => {
-    event.preventDefault();
-
-    try {
-      // Prepare the order items
-      const orderItems = food_list
-        .filter((item) => cartItems[item._id] > 0)
-        .map((item) => ({ ...item, quantity: cartItems[item._id] }));
-
-      const orderData = {
-        address: data,
-        items: orderItems,
-        amount: getTotalCartAmount() + 2,
-      };
-
-      // Make the API call
-      const response = await axios.post(`${url}/api/order/place`, orderData, { headers: { token } });
-
-      console.log("In payment session");
-      console.log("Full response:", response.data);
-
-      if (response.data.success && response.data.session_url) {
-        window.location.replace(response.data.session_url);
-      } else {
-        console.error("Error in API response:", response.data);
-        alert("Error in placing order. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error placing order:", error);
-      alert("An error occurred while placing the order. Please try again later.");
+    else if(getTotalCartAmount() === 0) {
+      navigate('/cart')
     }
-  };
+  }, [token])
+
 
 
   return (
