@@ -5,6 +5,15 @@
     align-items: center;
 }
 
+.navbar-right img {
+    width: 31px; /* Set a uniform width */
+    height: 31px; /* Set a uniform height */
+    object-fit: contain; /* Ensure proper scaling */
+    display: inline-block; /* Keep them inline */
+    vertical-align: middle; /* Align with other elements */
+}
+
+
 .navbar .logo {
     width: 150px;
 }
